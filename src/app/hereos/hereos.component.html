@@ -1,0 +1,18 @@
+<h3>Hereos Component</h3>
+<p>Voici les heros du composant Hereos: </p>
+<ul>
+	<li>{{hero.name | uppercase}}</li>
+	<ul>
+		<li><span>ID: </span>{{hero.id}}</li>
+		<li><span>Points de vie: </span>{{hero.pv}}</li>
+		<li>
+			<label>
+				<span>Expressions: </span> 
+			</label>
+			<blockquote>"{{hero.locution}}"</blockquote>
+			<span> Nouvelle expression ? : </span>
+			<input [(ngModel)]="hero.locution" placeholder="Nouvelle Expression"/>
+		</li>
+	</ul>
+</ul>
+
