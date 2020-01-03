@@ -2,17 +2,15 @@
 <h2> Voici la liste des Unités </h2>
 <p>Nous somme dans le composant HeroesComponent</p>
 <ul class="heroes">
-	<li *ngFor="let hero of heroes"
-		[class.selected]="hero === selectedHero"
-		(click)="onSelect(hero)">
-		<span class="badge">{{hero.id}}</span> {{hero.name | uppercase}}
+	<li *ngFor="let hero of heroes">
+		<a routerLink="/detail/{{hero.id}}">
+			<span class="badge">{{hero.id}}</span> {{hero.name | uppercase}}
+		</a>
 	</li>
 </ul>
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
-
 <!--
-
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 <div *ngIf="selectedHero">
 	<ul class="heroes">
