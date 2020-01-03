@@ -1,0 +1,12 @@
+<div *ngIf="hero">
+	<ul class="heroes">
+		<li>
+			<span class="badge">{{hero.id}}</span> {{hero.name | uppercase}}
+			<ul>
+				<li><span class="badge">PV</span> {{hero.pv}}</li>
+				<li><span class="badge">Devise</span> "{{hero.locution}}"</li>
+				<li><span class="badge">Changer devise</span><input [(ngModel)]="hero.locution" placeholder="Nouvelle Expression"/></li>
+			</ul>
+		</li>
+	</ul>
+</div>
