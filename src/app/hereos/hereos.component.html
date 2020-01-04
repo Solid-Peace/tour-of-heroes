@@ -1,11 +1,33 @@
 
-<h2> Voici la liste des Unités </h2>
 <p>Nous somme dans le composant HeroesComponent</p>
+
+<div>
+	<h2>Creez une nouvelle Unité</h2>
+  <label>Hero name:
+    <input #heroName />
+  </label>
+  <label>Nombre de PV:
+    <input #heroPv />
+  </label>
+  <label>Devise:
+    <input #heroLocution />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(heroName.value, heroPv.value, heroLocution.value); heroName.value=''; heroPv.value=''; heroLocution.value='';">
+    add
+  </button>
+</div>
+
+
+<h2> Voici la liste des Unités </h2>
+
 <ul class="heroes">
 	<li *ngFor="let hero of heroes">
 		<a routerLink="/detail/{{hero.id}}">
 			<span class="badge">{{hero.id}}</span> {{hero.name | uppercase}}
 		</a>
+		<button class="delete" title="delete hero"
+  		(click)="delete(hero)">x</button>
 	</li>
 </ul>
 

@@ -25,7 +25,24 @@ export class HereosComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes)
+    .subscribe(heroes => this.heroes = heroes)
+  }
+
+  add(name: string, pv, locution: string): void {
+    name = name.trim();
+    locution = locution.trim();
+    pv = parseInt(pv);
+    
+    if (!name || !locution || !pv) { return; }
+    this.heroService.addHero({ name, pv, locution } as Hero)
+    .subscribe(hero => {
+      this.heroes.push(hero);
+    });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero).subscribe();
   }
 
 }
